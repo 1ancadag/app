@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: gsheet-test
+    env: python
+    runtime: python
+    pythonVersion: 3.10.13
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    region: oregon
